@@ -6,6 +6,8 @@ const routeUrls = require("./routes/routes");
 const cors = require("cors");
 dotenv.config();
 
+const PORT = process.env.PORT || 4000
+
 mongoose.connect(process.env.DATABASE_ACCESS, () =>
   console.log("Database connected")
 );
@@ -30,4 +32,4 @@ app.use(express.json());
 app.use(cors());
 app.use("/app", routeUrls);
 
-app.listen(4000, () => console.log("server is up and running"));
+app.listen(PORT, () => console.log("server is up and running"));
